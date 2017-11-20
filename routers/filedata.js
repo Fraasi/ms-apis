@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/result', upload.single('file'), function (req, res) {
-    res.type('json');    
+    res.type('json');
     if (req.file == undefined) {
         res.send(JSON.stringify({
             'error': 'go back and choose a file before you submit'
@@ -22,17 +22,17 @@ router.post('/result', upload.single('file'), function (req, res) {
         };
         res.send(JSON.stringify(response, null, 2));
     }
-  });
+});
 
-  function returnFileSize(number) {
+function returnFileSize(number) {
     // from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-    if(number < 1024) {
-      return number + ' bytes';
-    } else if(number > 1024 && number < 1048576) {
-      return (number/1024).toFixed(1) + ' KB';
-    } else if(number > 1048576) {
-      return (number/1048576).toFixed(1) + ' MB';
+    if (number < 1024) {
+        return number + ' bytes';
+    } else if (number > 1024 && number < 1048576) {
+        return (number / 1024).toFixed(1) + ' KB';
+    } else if (number > 1048576) {
+        return (number / 1048576).toFixed(1) + ' MB';
     }
-  }
+}
 
 module.exports = router;

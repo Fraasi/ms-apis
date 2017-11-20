@@ -18,7 +18,7 @@ router.get('*', (req, res) => {
 			'Natural': `${months[date.getMonth()]}-${date.getDate()}-${date.getFullYear()}`
 		};
 		res.send(JSON.stringify(response, null, 2));
-	} else if ( isNaN(addr.input) && /^[a-z]+/i.exec(addr.input) !== null && months.includes(/^[a-z]+/i.exec(addr.input)[0]) && !isNaN(addr.input.slice(-1)) && Boolean(Number(/[\d\w]+$/i.exec(addr.input))) ) {
+	} else if (isNaN(addr.input) && /^[a-z]+/i.exec(addr.input) !== null && months.includes(/^[a-z]+/i.exec(addr.input)[0]) && !isNaN(addr.input.slice(-1)) && Boolean(Number(/[\d\w]+$/i.exec(addr.input)))) {
 		const day = Math.abs(/[-\s]\d+/.exec(addr.input)[0]);
 		const month = months.indexOf(/^[a-z]+/i.exec(addr.input)[0]);
 		const year = /\d+$/.exec(addr.input)[0];
@@ -27,7 +27,7 @@ router.get('*', (req, res) => {
 			'true': 'Valid date',
 			'Unix': date.getTime(),
 			'Natural': `${months[date.getMonth()]}-${date.getDate()}-${date.getFullYear()}`,
-			'parsed input': { day: +day, 'month': month + 1, year: +year}
+			'parsed input': { day: +day, 'month': month + 1, year: +year }
 		};
 		res.send(JSON.stringify(response, null, 2));
 	} else {
@@ -41,8 +41,7 @@ router.get('*', (req, res) => {
 	}
 	res.end();
 });
- 
-const months = [ "January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December" ];
+
+const months = ["January", "February", "March", "April", "May", "June",	"July", "August", "September", "October", "November", "December"];
 
 module.exports = router;
