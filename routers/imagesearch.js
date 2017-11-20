@@ -42,9 +42,9 @@ router.get('/:query', function (req, res) {
 
             const response = {
                 'info': 'Unsplash.com image search',
-                'howto': 'search/{query}[?page=1&per_page=10]',
-                'eg': 'search/cats?page=4&per_page=15 or just search/cats',
-                'extra': 'goto /search/latest to see 20 latest search terms',
+                'howto': 'imagesearch/{query}[?page=1&per_page=10]',
+                'eg': 'imagesearch/cats?page=4&per_page=15 or just imagesearch/cats',
+                'extra': 'goto imagesearch/latest to see 25 latest search terms',
                 'query': req.params.query,
                 'page': page,
                 'results_per_page': per_page,

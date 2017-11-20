@@ -7,7 +7,7 @@ router.get('*', (req, res) => {
 	res.set('Content-Type', 'application/json');
 	if (addr.input === '') {
 		const response = {
-			'info': "No input. Write unix or natural time in the address bar after 'timestamp'. For example /2188609200000 or /August 25, 1900"
+			'info': "No input. Write unix or natural time in the address bar. For example timestamp/2188609200000 or timestamp/August 25, 1900"
 		};
 		res.send(JSON.stringify(response, null, 2));
 	} else if (!isNaN(addr.input)) {
