@@ -6,6 +6,11 @@ const urlshortener = require('./routers/urlshortener.js');
 const imagesearch = require('./routers/imagesearch.js');
 const headers = require('./routers/headers.js');
 
+app.get('/robots.txt', (req, res) => {
+    res.type('html');               // => 'text/html'
+    res.send('User-agent: *\nDisallow: /');
+})
+
 app.use('/', home);
 app.use('/timestamp', timestamp);
 app.use('/filedata', filedata);

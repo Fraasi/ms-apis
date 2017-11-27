@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 	};
 	res.type('json');
 	res.send(JSON.stringify(response, null, 2));
-	response.date = (new Date()).toLocaleString('fi-FI', { hour12: false });
 	console.log('headers', `${(new Date()).toLocaleString('en-GB', { hour12: false })} - ip/software: ${req.ip} - ${/\([\w\d\s\.\;]+/.exec(req.headers['user-agent'])[0].replace('(', '')}`);
 });
 
